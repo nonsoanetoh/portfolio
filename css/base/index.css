@@ -1,0 +1,6 @@
+/* IMPORTING ALL FILES IN THIS FOLDER INTO ONE FILE SO THAT ITS JUST ONE CLEAN SINGLE IMPORT IN MAIN.CSS */
+
+@import "./reset.css";
+@import "./base.css";
+@import "./animations.css";
+@import "./typography.css";

@@ -1,0 +1,4 @@
+/* IMPORTING ALL FILES IN THIS FOLDER INTO ONE FILE SO THAT ITS JUST ONE CLEAN SINGLE IMPORT IN MAIN.CSS */
+
+@import "./home.css";
+@import "./contact.css";

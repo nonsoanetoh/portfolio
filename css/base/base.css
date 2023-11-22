@@ -1,0 +1,38 @@
+/* CSS RESET */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--clr-background);
+  font-family: "Inter", sans-serif;
+  line-height: 1.14;
+  overscroll-behavior: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+ul {
+  list-style: none;
+}
