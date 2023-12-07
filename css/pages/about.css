@@ -1,0 +1,10 @@
+/* placeholder class used before adding responsive images to test sizing */
+.placeholder {
+  background: #333;
+  aspect-ratio: 3/4;
+}
+
+/* sets the image aspect ratio to 3/4 */
+.about-image {
+  aspect-ratio: 3/4;
+}

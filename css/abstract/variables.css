@@ -1,0 +1,28 @@
+/* variables */
+
+:root {
+  --bs-gutter-x: 1rem;
+  --bs-green: #008000;
+  --bs-black: #000;
+  --bs-body-bg: #fefefe;
+  --bs-primary: #343434;
+  --bs-light: #fefefe;
+  --bs-white: #fefefe;
+}
+
+/* changing the container gutters */
+.container-fluid[data-type="full-width"] {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 1.5rem;
+  padding: calc(var(--bs-gutter-y) * 0.5) calc(var(--bs-gutter-x) * 0.5);
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.row > * {
+  padding-left: 0;
+  padding-right: 0;
+}

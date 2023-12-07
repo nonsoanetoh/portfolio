@@ -3,12 +3,255 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="css/main.css" />
     <title>Nonso Anetoh | About</title>
   </head>
   <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <!-- header -->
+    <header
+      class="container-fluid page-header page-header--home"
+      data-type="full-width"
+    >
+      <!-- skip links -->
+      <ul class="skip-links">
+        <li class="skip-link__item">
+          <a href="#main" aria-label="Skip to Main Section"
+            >Skip to Main Content</a
+          >
+        </li>
+        <li class="skip-link__item">
+          <a href="#footer" aria-label="Skip to Footer">Skip to Footer</a>
+        </li>
+      </ul>
+      <div class="row d-flex flex-row justify-content-center align-items-start">
+        <div class="col-4">
+          <!-- text logo -->
+          <h1 class="logo">
+            <a
+              itemprop="givenName"
+              href="index.html"
+              aria-label="go to home page"
+              >NONSO ANETOH</a
+            >
+          </h1>
+        </div>
+        <!-- clock icon -->
+        <div class="col-4 text-center clock clock--mobile">
+          <div class="icon d-inline-block">
+            <svg
+              viewBox="0 0 9 9"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="9" height="9" rx="4.5" fill="#343434" />
+              <line
+                x1="2.35355"
+                y1="2.64645"
+                x2="4.35355"
+                y2="4.64645"
+                stroke="#EBEBEB"
+              />
+              <line x1="7" y1="4.5" x2="4" y2="4.5" stroke="#EBEBEB" />
+            </svg>
+          </div>
+          <!-- time - (my own time no matter the location the website is viewed from) -->
+          <p class="d-inline-block">12:30pm</p>
+        </div>
+
+        <div class="col-4 text-end">
+          <!-- menu toggle -->
+          <button
+            class="menu-toggle"
+            aria-expanded="false"
+            aria-label="open navigation menu"
+          >
+            menu
+          </button>
+        </div>
+      </div>
+
+      <!-- off canvas nav menu -->
+      <nav class="off-canvas-menu">
+        <ul class="d-flex h-100 flex-column justify-content-center">
+          <!-- nav links -->
+          <li>
+            <a href="index.html" aria-label="go to home page"
+              ><span class="outer">
+                <span class="inner">HOME</span>
+              </span></a
+            >
+          </li>
+          <li>
+            <a href="about.html" aria-label="go to about page"
+              ><span class="outer">
+                <span class="inner">ABOUT</span>
+              </span></a
+            >
+          </li>
+          <li>
+            <a href="projects.html" aria-label="go to projects page"
+              ><span class="outer">
+                <span class="inner">PROJECTS</span>
+              </span></a
+            >
+          </li>
+          <li>
+            <a href="contact.html" aria-label="go to contact page"
+              ><span class="outer">
+                <span class="inner">CONTACT</span>
+              </span></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- main content wrapper -->
+    <main id="main">
+      <section
+        class="container-fluid row mt-2 margin-bottom--small"
+        data-type="full-width"
+      >
+        <!-- header -->
+        <h1 class="fs-page-header col-12" data-aos="fade-in">ABOUT</h1>
+        <!-- intro text -->
+        <p
+          class="col-12 col-sm-9 col-md-5 col-lg-3 offset-sm-1 offset-md-2 offset-lg-3"
+          data-aos="fade-in"
+          data-aos-delay="100"
+          data-aos-offset="-100"
+        >
+          At the core of his ethos is a commitment to merging innovation with
+          artistry. Nonso Anetoh is not just a developer; he is a storyteller in
+          the digital landscape.
+        </p>
+        <div class="row mt-2">
+          <div
+            class="cta col-12 col-sm-9 col-md-5 col-lg-3 offset-sm-1 offset-md-2 offset-lg-3 fs-base"
+          >
+            <span>
+              <span data-animate="fill" class="cta-line"> </span>
+              <a
+                data-animate="fadeIn"
+                href="projects.html"
+                class="text-uppercase"
+                aria-label="view my projects"
+                >view projects</a
+              >
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- image -->
+      <section
+        class="container-fluid margin-top--medium"
+        data-type="full-width"
+      >
+        <div class="row">
+          <div
+            data-aos="fade-in"
+            data-aos-delay="100"
+            class="col-8 offset-4 col-sm-6 offset-sm-6 col-md-4 offset-md-7 col-lg-4 offset-lg-6"
+          >
+            <picture>
+              <source
+                srcset="images/flower-480.jpg"
+                media="(max-width: 390px)"
+              />
+              <source
+                srcset="images/flower-720.jpg"
+                media="(max-width: 720px)"
+              />
+              <source
+                srcset="images/flower-1080.jpg"
+                media="(min-width: 1080px)"
+              />
+              <img
+                class="col-12 about-image"
+                src="images/flower-720.jpg"
+                alt="An Exploration of grayscale colors with p5.js"
+              />
+            </picture>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="container-fluid row margin-top--large margin-bottom--large"
+        data-type="full-width"
+      >
+        <p
+          class="col-12 col-sm-9 col-md-6 col-lg-5 offset-sm-0 offset-md-3 offset-lg-2"
+          data-aos="fade-in"
+        >
+          Collaboration is at the heart of his process. He believes in
+          co-creating with his clients, understanding their vision, and
+          translating it into digital magic. Meticulous planning, seamless
+          development, and an unwavering commitment to quality defines his
+          approach.
+        </p>
+      </section>
+
+      <!-- `the difference` section -->
+      <section
+        class="margin-top--large margin-bottom--large container-fluid"
+        data-type="full-width"
+      >
+        <div class="row mb-2" data-aos="fade-in">
+          <p class="title col-12 col-lg-2 offset-lg-3 fs-small mb-3">
+            <span> THE DIFFERENCE </span>
+            <span class="header-line"></span>
+          </p>
+          <p class="col-12 col-sm-10 col-lg-5 col-xl-4 fs-base">
+            <span class="line-wrap">What makes Nonso Anetoh unique is the</span>
+            <span class="line-wrap"
+              >harmonious blend of technical prowess and
+            </span>
+            <span class="line-wrap">creative flair</span>
+          </p>
+        </div>
+        <div class="row mb-2" data-aos="fade-in" data-aos-delay="50">
+          <p class="col-12 col-sm-10 col-lg-5 col-xl-4 offset-lg-5 fs-base">
+            <span class="line-wrap"
+              >It's not just about coding lines; it's about
+            </span>
+            <span class="line-wrap"
+              >weaving narratives that resonate with the
+            </span>
+            <span class="line-wrap">audience.</span>
+          </p>
+        </div>
+
+        <div class="row mb-2" data-aos="fade-in" data-aos-delay="100">
+          <p class="col-12 col-sm-10 col-lg-5 col-xl-4 offset-lg-5 fs-base">
+            <span class="line-wrap">He believes that each project is an </span>
+            <span class="line-wrap">opportunity to create something </span>
+            <span class="line-wrap">extraordinary.</span>
+          </p>
+        </div>
+      </section>
+    </main>
+    <!-- footer -->
+    <footer id="footer" class="container text-center py-3">
+      <small>&copy; 2023 Nonso Anetoh</small>
+      <a class="mt-3 to-top" href="#main">Skip to top</a>
+    </footer>
+    <script src="./javascript/index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

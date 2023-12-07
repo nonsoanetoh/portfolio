@@ -1,0 +1,14 @@
+tbody td:first-child a {
+  padding-left: 25px;
+  position: relative;
+}
+
+tbody tr:hover td:first-child a::before {
+  display: inline-block;
+  position: absolute;
+  left: 10px;
+  top: 2.5px;
+  content: "*";
+  color: var(--bs-green);
+  vertical-align: middle;
+}

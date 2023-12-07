@@ -13,9 +13,10 @@ html {
 }
 
 body {
-  background-color: var(--clr-background);
-  font-family: "Inter", sans-serif;
-  line-height: 1.14;
+  background-color: var(--bs-body-bg);
+  font-family: "GeneralSans", sans-serif;
+  line-height: 1.4;
+  color: var(--bs-primary);
   overscroll-behavior: none;
 }
 
@@ -27,12 +28,89 @@ img {
 }
 
 a {
+  display: inline-block;
   text-decoration: none;
   color: inherit;
   font-weight: inherit;
   font-size: inherit;
 }
 
+a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--bs-green);
+}
+
 ul {
   list-style: none;
+}
+
+section[data-font="responsive"] {
+  font-size: calc((100vw / 1920) * 10);
+}
+
+.table > :not(caption) > * > * {
+  padding: 0.5rem 0.5rem;
+  padding-left: 0;
+}
+
+.fs-page-header {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.fs-base {
+  font-size: 1rem;
+}
+
+.fs-small {
+  font-size: 0.65rem;
+}
+
+.fs-section-header {
+  font-size: 16em;
+  font-weight: 600;
+}
+
+.padding-top--large {
+  padding-top: 9rem;
+}
+
+.margin-top--large {
+  margin-top: 9rem;
+}
+
+.margin-top--small {
+  margin-top: 2rem;
+}
+
+.margin-bottom--medium {
+  margin-bottom: 6rem;
+}
+.margin-bottom--small {
+  margin-bottom: 3rem;
+}
+
+.margin-bottom--large {
+  margin-bottom: 9rem;
+}
+
+.margin-top--medium {
+  margin-top: 6rem;
+}
+
+thead,
+tr {
+  border-bottom: 0.5px solid #626262;
+}
+
+@media (min-width: 768px) {
+  .fs-page-header {
+    font-size: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .fs-page-header {
+    font-size: 9rem;
+  }
 }

@@ -1,0 +1,11 @@
+.to-top {
+  display: inline-block;
+  color: var(--bs-green);
+  text-decoration: underline;
+}
+
+.to-top:focus,
+.to-top:hover {
+  outline: 2px solid black;
+  outline-offset: 2px;
+}
