@@ -3,6 +3,18 @@
 @import "./layout/index.css";
 @import "./pages/index.css";
 
+.announcement {
+    position: relative;
+    width: 100vw;
+    padding: .5rem 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+}
+
 /* BASE - CONTAINS ANIMATIONS, THE CSS RESET FROM MEYER, AND ANY TYPOGRAPHY RELATED CODE */
 /* LAYOUT - CONTAINS MY REUSABLE GRID, THE HEADER & FOOTER, AND THE VIEW CONTAINER */
 /* PAGES - CONTAINS PAGE SPECIFIC CSS */
