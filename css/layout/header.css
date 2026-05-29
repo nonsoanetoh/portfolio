@@ -154,7 +154,7 @@
 }
 
 .off-canvas-menu ul li:nth-of-type(3) .outer::after {
-  content: "PROJECTS";
+  content: "WORK";
 }
 
 .off-canvas-menu ul li:nth-of-type(4) .outer::after {
