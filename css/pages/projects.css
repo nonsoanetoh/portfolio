@@ -1,12 +1,15 @@
-tbody td:first-child a {
+tbody td:first-child {
   padding-left: 25px;
+}
+
+tbody td:first-child a {
   position: relative;
 }
 
 tbody tr:hover td:first-child a::before {
   display: inline-block;
   position: absolute;
-  left: 10px;
+  left: -15px;
   top: 2.5px;
   content: "*";
   color: var(--bs-green);
