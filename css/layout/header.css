@@ -37,7 +37,7 @@
 }
 
 .page-header > .row {
-  justify-content: space-between;
+  justify-content: flex-start !important;
 }
 
 .clock--mobile .icon {
