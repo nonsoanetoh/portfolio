@@ -127,6 +127,33 @@ window.onload = function () {
     }
   });
 
+  // project list accordion
+  const projectRows = document.querySelectorAll(".project-row");
+  projectRows.forEach((row) => {
+    row.addEventListener("click", (e) => {
+      // let link clicks through
+      if (e.target.closest("a")) return;
+
+      const detailsRow = row.nextElementSibling;
+      if (!detailsRow || !detailsRow.classList.contains("project-details")) return;
+
+      const isOpen = detailsRow.classList.contains("is-open");
+
+      // close all open rows
+      document.querySelectorAll(".project-details.is-open").forEach((el) => {
+        el.classList.remove("is-open");
+        el.previousElementSibling.classList.remove("is-open");
+        el.previousElementSibling.setAttribute("aria-expanded", "false");
+      });
+
+      if (!isOpen) {
+        detailsRow.classList.add("is-open");
+        row.classList.add("is-open");
+        row.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+
   // adds an event listener to the document for the "keydown" event. When a key is pressed, the code checks if a specific menu element has a CSS class of "off-canvas-menu--open". If the menu is open:
   // It creates an array called focusableElements that contains the toggle element and all elements in the links array.
   // It assigns the first element of the focusableElements array to the variable firstElement.

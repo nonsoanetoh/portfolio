@@ -2,19 +2,15 @@ tbody td:first-child {
   padding-left: 25px;
 }
 
-tbody td:first-child a {
-  position: relative;
-}
-
 tbody tr {
   transition: background-color 0.15s ease;
 }
 
-tbody tr:hover {
+tbody tr.project-row:hover {
   background-color: rgba(0, 0, 0, 0.025);
 }
 
-tbody tr:hover td:first-child a::before {
+tbody tr.project-row:hover td:first-child .project-row__name::before {
   display: inline-block;
   position: absolute;
   left: -15px;
@@ -22,4 +18,94 @@ tbody tr:hover td:first-child a::before {
   content: "*";
   color: var(--bs-green);
   vertical-align: middle;
+}
+
+/* accordion row */
+.project-row {
+  cursor: pointer;
+  user-select: none;
+}
+
+.project-row__name-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 1rem;
+}
+
+.project-row__name {
+  position: relative;
+}
+
+.project-row__indicator {
+  font-size: 0.9rem;
+  line-height: 1;
+  opacity: 0.4;
+  transition: transform 0.35s cubic-bezier(0.25, 0, 0, 1), opacity 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.project-row.is-open .project-row__indicator {
+  transform: rotate(45deg);
+  opacity: 0.8;
+}
+
+/* details panel */
+.project-details td {
+  padding: 0 !important;
+  border-bottom: none !important;
+}
+
+.project-details__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.6s cubic-bezier(0.25, 0, 0, 1),
+    padding 0.6s cubic-bezier(0.25, 0, 0, 1),
+    opacity 0.4s ease;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 25px;
+  padding-right: 25px;
+  opacity: 0;
+}
+
+.project-details.is-open .project-details__inner {
+  max-height: 500px;
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+  opacity: 1;
+}
+
+.project-details--no-media .project-details__inner {
+  grid-template-columns: 1fr;
+  max-width: 480px;
+}
+
+.project-details__desc {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  opacity: 0.6;
+  margin-bottom: 0;
+}
+
+.project-details__links {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.project-details__media img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+@media (max-width: 767px) {
+  .project-details__inner {
+    grid-template-columns: 1fr;
+  }
 }

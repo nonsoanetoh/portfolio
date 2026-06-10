@@ -10,6 +10,11 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
@@ -17,7 +22,7 @@ body {
   font-family: "GeneralSans", sans-serif;
   line-height: 1.4;
   color: var(--bs-primary);
-  overscroll-behavior: none;
+  overscroll-behavior-x: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

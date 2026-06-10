@@ -113,8 +113,8 @@
         <div class="menu-info">
           <a href="mailto:nonsoanetoh@gmail.com" class="menu-info__email">nonsoanetoh@gmail.com</a>
           <div class="menu-info__socials">
-            <a href="https://www.linkedin.com/in/nonsoanetoh" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
-            <a href="https://www.instagram.com/nonsoanetoh/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+            <a href="https://www.linkedin.com/in/nonsoanetoh" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn ↗</a>
+            <a href="https://www.instagram.com/nonsoanetoh/" target="_blank" rel="noopener" aria-label="Instagram">Instagram ↗</a>
           </div>
         </div>
       </nav>
@@ -180,19 +180,15 @@
 
       <!-- grouped images -->
       <section
-        class="container-fluid grid home-projects-grid home-projects-grid--1"
+        class="container-fluid home-projects-grid home-projects-grid--scatter"
         data-type="full-width"
       >
-        <div class="row mb-4 align-items-center" data-aos="fade-in">
-          <p class="title col-auto fs-small">
-            <span>FEATURED WORK</span>
-            <span class="header-line"></span>
-          </p>
+        <div class="row mb-5 align-items-center" data-aos="fade-in">
+          <h2 class="featured-work-heading col-12">FEATURED WORK</h2>
         </div>
-        <div
-          class="row d-flex flex-column justify-content-sm-center align-content-sm-center gap-large align-items-lg-start"
-        >
-          <div class="home-project col-12 col-xl-6 col-sm-5" data-aos="fade-up">
+        <div class="projects-scatter-grid">
+          <!-- 01 heesoo -->
+          <div class="home-project home-project--1" data-aos="card-reveal" data-aos-duration="800" data-aos-easing="ease-out-quart">
             <div class="img-container">
               <picture>
                 <img
@@ -220,7 +216,37 @@
               <p class="project-tools">Next.js, Sanity</p>
             </div>
           </div>
-          <div class="home-project col-12 col-xl-6 col-sm-5" data-aos="fade-up">
+          <!-- 02 stworzenie b -->
+          <div class="home-project home-project--2" data-aos="card-reveal" data-aos-duration="800" data-aos-delay="100" data-aos-easing="ease-out-quart">
+            <div class="img-container">
+              <picture>
+                <img
+                  class="about-image"
+                  src="images/stwornzenie-b.gif"
+                  alt="Stworzenie B"
+                />
+              </picture>
+            </div>
+            <div class="project-desc">
+              <span class="project-number">02</span>
+              <div class="project-header">
+                <h2 class="project-title">STWORZENIE B</h2>
+                <div class="project-links">
+                  <a
+                    href="https://unnamed-v2.myshopify.com/"
+                    target="_blank"
+                    rel="noopener"
+                    class="project-link"
+                    >Live ↗</a
+                  >
+                </div>
+              </div>
+              <p class="project-category">Shopify Theme Development</p>
+              <p class="project-tools">Shopify Liquid</p>
+            </div>
+          </div>
+          <!-- 03 sessions of five -->
+          <div class="home-project home-project--3" data-aos="card-reveal" data-aos-duration="800" data-aos-delay="50" data-aos-easing="ease-out-quart">
             <div class="img-container">
               <picture>
                 <img
@@ -231,21 +257,22 @@
               </picture>
             </div>
             <div class="project-desc">
-              <span class="project-number">02</span>
+              <span class="project-number">03</span>
               <div class="project-header">
                 <h2 class="project-title">SESSIONS OF FIVE</h2>
               </div>
               <p class="project-category">Web Design</p>
             </div>
           </div>
-          <div class="home-project col-12 col-xl-6 col-sm-5" data-aos="fade-up">
+          <!-- 04 lumos -->
+          <div class="home-project home-project--4" data-aos="card-reveal" data-aos-duration="800" data-aos-delay="150" data-aos-easing="ease-out-quart">
             <div class="img-container">
               <picture>
                 <img class="about-image" src="images/lumos.gif" alt="Lumos" />
               </picture>
             </div>
             <div class="project-desc">
-              <span class="project-number">03</span>
+              <span class="project-number">04</span>
               <div class="project-header">
                 <h2 class="project-title">LUMOS</h2>
                 <div class="project-links">
@@ -270,14 +297,9 @@
             </div>
           </div>
         </div>
-        <div class="row mt-4">
-          <div class="col-12">
-            <div class="cta">
-              <span>
-                <span class="cta-line"></span>
-                <a href="work.html" class="text-uppercase">View all work</a>
-              </span>
-            </div>
+        <div class="row" style="margin-top: 5rem;">
+          <div class="col-12 d-flex justify-content-center">
+            <a href="work.html" class="btn-view-all">View all work</a>
           </div>
         </div>
       </section>
