@@ -6,6 +6,14 @@ tbody td:first-child a {
   position: relative;
 }
 
+tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.025);
+}
+
 tbody tr:hover td:first-child a::before {
   display: inline-block;
   position: absolute;

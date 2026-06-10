@@ -18,6 +18,8 @@ body {
   line-height: 1.4;
   color: var(--bs-primary);
   overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img {
@@ -25,6 +27,7 @@ img {
   height: auto;
   object-fit: cover;
   vertical-align: middle;
+  outline: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 a {
@@ -53,6 +56,14 @@ section[data-font="responsive"] {
   padding-left: 0;
 }
 
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
 .fs-page-header {
   font-size: 3rem;
   font-weight: 600;
@@ -64,6 +75,7 @@ section[data-font="responsive"] {
 
 .fs-small {
   font-size: 0.65rem;
+  letter-spacing: 0.06em;
 }
 
 .fs-section-header {
