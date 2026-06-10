@@ -159,17 +159,49 @@ window.onload = function () {
   // It assigns the first element of the focusableElements array to the variable firstElement.
   // It assigns the last element of the focusableElements array to the variable lastElement.
 
-  // Work arc scroll parallax
+  // Work arc — Y parallax + scroll-velocity X spread
   const arcSection = document.querySelector(".work-arc-section");
   const workArc = document.querySelector(".work-arc");
-  if (arcSection && workArc) {
-    const updateArc = () => {
-      const rect = arcSection.getBoundingClientRect();
-      const sectionMid = rect.top + rect.height / 2;
-      const viewportMid = window.innerHeight / 2;
-      const offset = (sectionMid - viewportMid) * 0.12;
-      workArc.style.transform = `translateY(${offset}px)`;
+  const arcCards = Array.from(document.querySelectorAll(".arc-card"));
+
+  if (arcSection && workArc && arcCards.length) {
+    let lastScrollY = window.scrollY;
+    let velocity = 0;
+    let rafId = null;
+    const centerIndex = Math.floor(arcCards.length / 2);
+
+    const applyXShift = (vel) => {
+      arcCards.forEach((card, i) => {
+        const dist = i - centerIndex; // -2, -1, 0, 1, 2
+        card.style.setProperty("--x-shift", `${vel * dist * 2.8}px`);
+      });
     };
+
+    const decayLoop = () => {
+      velocity *= 0.8;
+      applyXShift(velocity);
+      if (Math.abs(velocity) > 0.15) {
+        rafId = requestAnimationFrame(decayLoop);
+      } else {
+        velocity = 0;
+        applyXShift(0);
+      }
+    };
+
+    const updateArc = () => {
+      const currentScrollY = window.scrollY;
+      velocity = currentScrollY - lastScrollY;
+      lastScrollY = currentScrollY;
+
+      const rect = arcSection.getBoundingClientRect();
+      const yOffset =
+        (rect.top + rect.height / 2 - window.innerHeight / 2) * 0.12;
+      workArc.style.transform = `translateY(${yOffset}px)`;
+
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(decayLoop);
+    };
+
     window.addEventListener("scroll", updateArc, { passive: true });
     updateArc();
   }

@@ -1,6 +1,6 @@
 /* work gif arc carousel */
 .work-arc-section {
-  padding: 3rem 0 5rem;
+  padding: 3rem 0 6rem;
   width: 100%;
 }
 
@@ -13,16 +13,23 @@
 }
 
 .arc-card {
-  width: 220px;
+  /* viewport-relative width so the arc always bleeds off both edges */
+  width: clamp(220px, 24vw, 440px);
   flex-shrink: 0;
   overflow: hidden;
   outline: 1px solid rgba(0, 0, 0, 0.08);
-  margin: 0 -22px;
+  margin: 0 -2.5vw;
   cursor: pointer;
   transform-origin: bottom center;
-  transition: transform 0.4s cubic-bezier(0.25, 0, 0, 1),
-              filter 0.3s ease;
   position: relative;
+
+  /* scroll-driven X shift via CSS translate — applies in parent space,
+     independent of the card's own rotation transform */
+  translate: var(--x-shift, 0px) 0;
+
+  transition: transform 0.4s cubic-bezier(0.25, 0, 0, 1),
+              translate 0.5s cubic-bezier(0.25, 0, 0, 1),
+              filter 0.3s ease;
 }
 
 /* arc rotations — fan outward from center */
@@ -46,35 +53,9 @@
 
 .arc-card img {
   width: 100%;
-  height: 260px;
+  /* let the gif's natural aspect ratio determine height */
+  height: clamp(160px, 17vw, 300px);
   object-fit: cover;
   display: block;
   outline: none;
-}
-
-@media (max-width: 767px) {
-  .arc-card {
-    width: 140px;
-    margin: 0 -16px;
-  }
-
-  .arc-card img {
-    height: 180px;
-  }
-}
-
-@media (max-width: 450px) {
-  .arc-card {
-    width: 110px;
-    margin: 0 -14px;
-  }
-
-  .arc-card img {
-    height: 140px;
-  }
-
-  .arc-card--1,
-  .arc-card--5 {
-    display: none;
-  }
 }
