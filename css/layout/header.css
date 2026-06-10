@@ -31,9 +31,23 @@
 }
 
 .logo {
+  position: fixed;
+  left: 2.5rem;
+  top: 1.25rem;
   font-size: 0.85rem;
+  font-weight: 500;
   white-space: nowrap;
-  text-align: left;
+  z-index: 10000;
+  mix-blend-mode: difference;
+  color: #fefefe;
+}
+
+.logo a {
+  color: inherit;
+}
+
+.logo a:hover {
+  text-decoration: none;
 }
 
 .page-header > .row {
@@ -271,7 +285,12 @@
     display: none;
   }
 
-  /* menu button aligns with the reduced page padding */
+  /* logo and menu button share the same top and matching left/right inset */
+  .logo {
+    left: 1rem;
+    top: 0.75rem;
+  }
+
   .menu-toggle {
     right: 1rem;
     top: 0.75rem;
