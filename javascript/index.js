@@ -159,6 +159,21 @@ window.onload = function () {
   // It assigns the first element of the focusableElements array to the variable firstElement.
   // It assigns the last element of the focusableElements array to the variable lastElement.
 
+  // Work arc scroll parallax
+  const arcSection = document.querySelector(".work-arc-section");
+  const workArc = document.querySelector(".work-arc");
+  if (arcSection && workArc) {
+    const updateArc = () => {
+      const rect = arcSection.getBoundingClientRect();
+      const sectionMid = rect.top + rect.height / 2;
+      const viewportMid = window.innerHeight / 2;
+      const offset = (sectionMid - viewportMid) * 0.12;
+      workArc.style.transform = `translateY(${offset}px)`;
+    };
+    window.addEventListener("scroll", updateArc, { passive: true });
+    updateArc();
+  }
+
   document.addEventListener("keydown", (event) => {
     if (menu.classList.contains("off-canvas-menu--open")) {
       const focusableElements = [toggle, ...links];
