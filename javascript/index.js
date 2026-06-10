@@ -1,4 +1,13 @@
 window.onload = function () {
+  // Mark the current page nav link as active
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".off-canvas-menu ul a").forEach((link) => {
+    const href = link.getAttribute("href");
+    if (href === currentPage || (currentPage === "" && href === "index.html")) {
+      link.setAttribute("aria-current", "page");
+    }
+  });
+
   const spans = document.querySelectorAll(".display-text span");
 
   // check if the spans exist
