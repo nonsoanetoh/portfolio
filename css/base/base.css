@@ -1,3 +1,15 @@
+/* external link arrow icon */
+.ext-arrow {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  vertical-align: middle;
+  margin-left: 0.2em;
+  position: relative;
+  top: -0.05em;
+  flex-shrink: 0;
+}
+
 /* CSS RESET */
 
 *,
