@@ -33,6 +33,11 @@
 .logo {
   font-size: 0.85rem;
   white-space: nowrap;
+  text-align: left;
+}
+
+.page-header > .row {
+  justify-content: space-between;
 }
 
 .clock--mobile .icon {
