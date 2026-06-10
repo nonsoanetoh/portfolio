@@ -159,51 +159,72 @@ window.onload = function () {
   // It assigns the first element of the focusableElements array to the variable firstElement.
   // It assigns the last element of the focusableElements array to the variable lastElement.
 
-  // Work arc — Y parallax + scroll-velocity X spread
+  // Infinite arc carousel — scroll drives all cards along a parabolic path
   const arcSection = document.querySelector(".work-arc-section");
-  const workArc = document.querySelector(".work-arc");
-  const arcCards = Array.from(document.querySelectorAll(".arc-card"));
+  const arcWrapper = document.querySelector(".work-arc");
+  const originalArcCards = Array.from(arcWrapper ? arcWrapper.querySelectorAll(".arc-card") : []);
 
-  if (arcSection && workArc && arcCards.length) {
+  if (arcSection && arcWrapper && originalArcCards.length) {
+    // Prepend clone of last card, append clone of first card for seamless edges
+    arcWrapper.prepend(originalArcCards[originalArcCards.length - 1].cloneNode(true));
+    arcWrapper.append(originalArcCards[0].cloneNode(true));
+
+    const allCards = Array.from(arcWrapper.querySelectorAll(".arc-card"));
+    const n = allCards.length; // 7 (5 + 2 clones)
+
+    const CARD_GAP = 28;   // px gap between cards
+    const SCROLL_SPEED = 0.35; // scroll px → carousel px
+
+    let offset = 0;
+    let cardW = 0;
+    let containerW = 0;
     let lastScrollY = window.scrollY;
-    let velocity = 0;
-    let rafId = null;
-    const centerIndex = Math.floor(arcCards.length / 2);
 
-    const applyXShift = (vel) => {
-      arcCards.forEach((card, i) => {
-        const dist = i - centerIndex; // -2, -1, 0, 1, 2
-        card.style.setProperty("--x-shift", `${vel * dist * 2.8}px`);
+    const init = () => {
+      cardW = allCards[0].offsetWidth;
+      containerW = arcWrapper.offsetWidth;
+    };
+
+    const render = () => {
+      const step = cardW + CARD_GAP;
+      const totalW = n * step;
+      const half = totalW / 2;
+
+      allCards.forEach((card, i) => {
+        // Logical center position for each card
+        const baseX = (i - (n - 1) / 2) * step;
+
+        // Wrap position modulo the total arc width
+        let x = ((baseX + offset + half) % totalW + totalW) % totalW - half;
+
+        // Straight horizontal row — no rotation, no arc
+        const left = containerW / 2 + x - cardW / 2;
+        card.style.transform = `translate(${left}px, 0px)`;
+
+        // Center card sits on top; edges below
+        card.style.zIndex = String(Math.round(50 - Math.abs(x) / step));
       });
     };
 
-    const decayLoop = () => {
-      velocity *= 0.8;
-      applyXShift(velocity);
-      if (Math.abs(velocity) > 0.15) {
-        rafId = requestAnimationFrame(decayLoop);
-      } else {
-        velocity = 0;
-        applyXShift(0);
-      }
-    };
+    window.addEventListener("scroll", () => {
+      const delta = window.scrollY - lastScrollY;
+      lastScrollY = window.scrollY;
 
-    const updateArc = () => {
-      const currentScrollY = window.scrollY;
-      velocity = currentScrollY - lastScrollY;
-      lastScrollY = currentScrollY;
-
+      // Only drive the carousel while the section is in the viewport
       const rect = arcSection.getBoundingClientRect();
-      const yOffset =
-        (rect.top + rect.height / 2 - window.innerHeight / 2) * 0.12;
-      workArc.style.transform = `translateY(${yOffset}px)`;
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        offset -= delta * SCROLL_SPEED;
+        render();
+      }
+    }, { passive: true });
 
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(decayLoop);
-    };
+    window.addEventListener("resize", () => {
+      init();
+      render();
+    });
 
-    window.addEventListener("scroll", updateArc, { passive: true });
-    updateArc();
+    init();
+    render();
   }
 
   document.addEventListener("keydown", (event) => {
