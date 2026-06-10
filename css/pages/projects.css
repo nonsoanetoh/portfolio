@@ -109,3 +109,16 @@ tbody tr.project-row:hover td:first-child .project-row__name::before {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 575px) {
+  /* hide role/tech column — info is in the accordion details panel */
+  .table thead th:nth-child(2),
+  .table tbody td:nth-child(2) {
+    display: none;
+  }
+
+  /* first column takes remaining width */
+  .table tbody td:first-child {
+    width: 100%;
+  }
+}

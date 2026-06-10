@@ -17,6 +17,12 @@
   padding: calc(var(--bs-gutter-y) * 0.5) calc(var(--bs-gutter-x) * 0.5);
 }
 
+@media (max-width: 575px) {
+  .container-fluid[data-type="full-width"] {
+    --bs-gutter-x: 2.5rem;
+  }
+}
+
 .row {
   margin-left: 0;
   margin-right: 0;

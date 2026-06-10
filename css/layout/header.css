@@ -32,6 +32,7 @@
 
 .logo {
   font-size: 0.85rem;
+  white-space: nowrap;
 }
 
 .clock--mobile .icon {
@@ -257,6 +258,19 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.65rem !important;
+}
+
+@media screen and (max-width: 575px) {
+  /* hide clock — logo gets the space */
+  .clock {
+    display: none;
+  }
+
+  /* menu button aligns with the reduced page padding */
+  .menu-toggle {
+    right: 1rem;
+    top: 0.75rem;
+  }
 }
 
 @media screen and (max-width: 450px) {
